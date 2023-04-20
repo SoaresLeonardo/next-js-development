@@ -1,6 +1,10 @@
 'use client';
 
+import { Montserrat } from 'next/font/google';
+
 import './globals.css';
+
+const montserrat = Montserrat({ subsets: ['latin'] });
 
 export default function RootLayout({
   children
@@ -19,7 +23,10 @@ export default function RootLayout({
 
   return (
     <html lang="pt-BR">
-      <body style={{ backgroundColor: '#ecf0f1' }}>
+      <body
+        className={`${montserrat.className}`}
+        style={{ backgroundColor: '#ecf0f1' }}
+      >
         <div style={{ margin: '0 auto', maxWidth: '450px' }}>
           {/* {isPublicPage && children}
           {!isPublicPage && <PrivateRoute>{children}</PrivateRoute>} */}
