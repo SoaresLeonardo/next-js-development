@@ -1,5 +1,6 @@
 'use client';
 
+import ActiveLink from '@/components/ActiveLink';
 import './globals.css';
 
 export default function RootLayout({
@@ -24,6 +25,8 @@ export default function RootLayout({
           {/* {isPublicPage && children}
           {!isPublicPage && <PrivateRoute>{children}</PrivateRoute>} */}
           {children}
+          <ActiveLink href="/example">Example</ActiveLink>
+          <ActiveLink href="/">Home</ActiveLink>
         </div>
       </body>
     </html>
