@@ -27,7 +27,13 @@ export default function RootLayout({
         className={`${montserrat.className}`}
         style={{ backgroundColor: '#ecf0f1' }}
       >
-        <div style={{ margin: '0 auto', maxWidth: '450px' }}>
+        <div
+          style={{
+            margin: '50px auto',
+            maxWidth: '450px',
+            textAlign: 'center'
+          }}
+        >
           {/* {isPublicPage && children}
           {!isPublicPage && <PrivateRoute>{children}</PrivateRoute>} */}
           {children}
