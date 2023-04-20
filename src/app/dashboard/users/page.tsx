@@ -33,9 +33,7 @@ export default function Users() {
 
       {users.map((user) => (
         <div key={user.id} onClick={() => handleUserById(user.id)}>
-          <p>Id: {user.id}</p>
           <p>Name: {user.name}</p>
-          <p>Age: {user.age}</p>
         </div>
       ))}
     </>
