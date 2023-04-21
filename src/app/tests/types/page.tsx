@@ -1,49 +1,64 @@
 'use client';
 
-import { useState } from 'react';
-
-const data = [
-  { id: 1, name: 'Lucas', age: 16 },
-  { id: 2, name: 'Leonardo', age: 15 },
-  { id: 3, name: 'Maria', age: 16 }
-];
-
-type PeopleProps = {
-  id: number;
+type PersonProps = {
   name: string;
+  doc: string;
   age: number;
 };
 
+type ContactProps = {
+  phone: string;
+  email: string;
+};
+
+type AddressProps = {
+  city: string;
+  zipCode: string;
+};
+
+// type CustomerProps = PersonProps | ContactProps | AddressProps;
+
+type DocumentProps = Pick<PersonProps, 'doc'>;
+type PersonWithoutDocProps = Omit<PersonProps, 'doc'>;
+
+function exampleFunction<T>(args: T): T {
+  console.log(args);
+
+  return args;
+}
+
 export default function TypePage() {
-  // const [name, setName] = useState('');
-  // const [number, setBoolean] = useState(false);
+  // const handleSaveCustomer = (customer: CustomerProps) => {
+  //   console.log(customer);
+  // };
 
-  // ===================
+  // handleSaveCustomer({
+  //   age: 15,
+  //   city: 'City',
+  //   doc: '123',
+  //   email: 'email@example.com',
+  //   name: 'Name',
+  //   phone: '1234',
+  //   zipCode: '123'
+  // });
 
-  // const [userId, setUserId] = useState<number | null>(null);
+  exampleFunction({ number: 200 });
 
-  const [rowSelected, setRowSelected] = useState<PeopleProps | null>(null);
+  function double(a: number | string) {
+    if (typeof a === 'number') {
+      return `Resultado = ${a * 2}`;
+    }
 
-  const handleRowSelected = (data: PeopleProps) => {
-    console.log(data);
-    setRowSelected(data);
-  };
+    throw new Error(
+      `Error - não foi possível calcular o dobro do parametro ${typeof a}`
+    );
+  }
+
+  console.log(double(2));
 
   return (
     <>
-      <h1 className="font-bold">Type</h1>
-
-      <h2>{rowSelected?.name}</h2>
-
-      {data.map((people) => (
-        <div
-          key={people.id}
-          style={{ cursor: 'pointer' }}
-          onClick={() => handleRowSelected(people)}
-        >
-          name: {people.name} - age: {people.age}
-        </div>
-      ))}
+      <h1 className="font-bold">Types</h1>
     </>
   );
 }
