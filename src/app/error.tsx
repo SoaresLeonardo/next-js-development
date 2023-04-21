@@ -1,0 +1,31 @@
+'use client';
+
+import { useEffect } from 'react';
+
+type ErrorProps = {
+  error: Error;
+  reset: () => void;
+};
+
+export default function Error({ error, reset }: ErrorProps) {
+  useEffect(() => {
+    console.log(error);
+  });
+
+  return (
+    <div>
+      <p>Something went wrong!</p>
+      <pre>{error.message}</pre>
+      <button
+        style={{
+          backgroundColor: 'black',
+          color: 'white',
+          borderRadius: '6px'
+        }}
+        onClick={() => reset()}
+      >
+        Reset error boundary
+      </button>
+    </div>
+  );
+}
