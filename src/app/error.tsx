@@ -16,16 +16,7 @@ export default function Error({ error, reset }: ErrorProps) {
     <div>
       <p>Something went wrong!</p>
       <pre>{error.message}</pre>
-      <button
-        style={{
-          backgroundColor: 'black',
-          color: 'white',
-          borderRadius: '6px'
-        }}
-        onClick={() => reset()}
-      >
-        Reset error boundary
-      </button>
+      <button onClick={() => reset()}>Reset error boundary</button>
     </div>
   );
 }
