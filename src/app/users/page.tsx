@@ -14,7 +14,7 @@ export default async function Users() {
 
   return (
     <>
-      <h1 className="font-bold">Users</h1>
+      <h1>Users</h1>
       {users?.map((user) => (
         <div key={user.cell}>{user.name.first}</div>
       ))}

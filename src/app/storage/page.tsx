@@ -16,7 +16,7 @@ export default function Storage() {
 
   return (
     <div>
-      <h1 className="font-bold">Storage</h1>
+      <h1>Storage</h1>
 
       <p>{data}</p>
 

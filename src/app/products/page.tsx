@@ -14,7 +14,7 @@ export default async function Products() {
 
   return (
     <>
-      <h1 className="font-bold">Products</h1>
+      <h1>Products</h1>
       {products?.map((product) => (
         <p key={product.id}>{product.name}</p>
       ))}
