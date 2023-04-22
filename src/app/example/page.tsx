@@ -1,20 +1,17 @@
-import Products from './components/products';
-import Users from './components/users';
+import { Skeleton } from '@/components/Skeleton';
 
 export default function Example() {
   return (
     <div
       style={{
+        width: '100%',
         display: 'flex',
         flexDirection: 'column',
         gap: '1rem'
       }}
     >
       Example
-      {/* @ts-expect-error Async Server Component */}
-      <Products />
-      {/* @ts-expect-error Async Server Component */}
-      <Users />
+      <Skeleton />
     </div>
   );
 }
