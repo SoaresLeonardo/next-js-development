@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Button from '.';
 describe('Button', () => {
   it('should render', () => {
@@ -38,5 +38,17 @@ describe('Button', () => {
     expect(buttonElement).toHaveStyle({
       backgroundColor: 'red'
     });
+  });
+
+  it('should call onClick prop on Click', () => {
+    const onClick = jest.fn();
+    render(<Button onClick={onClick}>Click me</Button>);
+
+    const button = screen.getByText(/click me/i);
+
+    fireEvent.click(button);
+
+    // expect(onClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalled();
   });
 });
