@@ -1,4 +1,4 @@
-export default async function Example() {
+export default function Example() {
   return (
     <div>
       <h1>Example</h1>
