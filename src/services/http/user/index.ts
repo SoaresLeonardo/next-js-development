@@ -1,14 +1,20 @@
-import { RandomUserResponse, User } from './types';
+import axios from 'axios';
+import api from '@/services/api';
+import { User } from './types';
 
-export const PeopleService = {
-  getAll: async function (): Promise<User[] | undefined> {
+class UserService {
+  async getAll(): Promise<User[] | undefined> {
     try {
-      const response = await fetch('https://randomuser.me/api/?results=10');
-      const data: RandomUserResponse = await response.json();
-      return data.results;
+      const { data } = await api.get<User[]>('users');
+      return data;
     } catch (err) {
-      console.error(err);
-      return [];
+      if (axios.isAxiosError(err) && err.response) {
+        throw new Error(`Status: ${err.response.status} - ${err.message}`);
+      }
     }
   }
-};
+}
+
+const userService = new UserService();
+
+export default userService;

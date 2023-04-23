@@ -1,25 +1,23 @@
 export interface User {
-  gender: string;
-  name: {
-    title: string;
-    first: string;
-    last: string;
-  };
+  id: number;
+  name: string;
+  username: string;
   email: string;
-  cell: number;
-  picture: {
-    large: string;
-    medium: string;
-    thumbnail: string;
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
   };
-}
-
-export interface RandomUserResponse {
-  results: User[];
-  info: {
-    seed: string;
-    results: number;
-    page: number;
-    version: string;
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
   };
 }
