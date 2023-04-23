@@ -13,7 +13,7 @@ describe('<Card>', () => {
   fit('should render async component', async () => {
     render(<Card />);
 
-    const mainElement = await screen.quer('main');
+    const mainElement = await screen.findByRole('main');
 
     expect(mainElement).toBeVisible();
   });
