@@ -1,4 +1,6 @@
-import userService from '@/services/http/user';
+import UserService from '@/services/http/user';
+
+const userService = new UserService();
 
 const getUsers = async () => {
   const response = await userService.getAll();

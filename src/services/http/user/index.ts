@@ -13,8 +13,17 @@ class UserService {
       }
     }
   }
+
+  async getById(id: number): Promise<User | undefined> {
+    try {
+      const { data } = await api.get<User>(`users/${id}`);
+      return data;
+    } catch (err) {
+      if (axios.isAxiosError(err) && err.response) {
+        throw new Error(`Status: ${err.response.status} - ${err.message}`);
+      }
+    }
+  }
 }
 
-const userService = new UserService();
-
-export default userService;
+export default UserService;
