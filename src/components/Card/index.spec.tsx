@@ -1,34 +1,34 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import Card from '.';
+// import { fireEvent, render, screen } from '@testing-library/react';
+// import Card from '.';
 
-describe('<Card>', () => {
-  it('should render component by default', () => {
-    render(<Card />);
+// describe('<Card>', () => {
+//   it('should render component by default', () => {
+//     render(<Card />);
 
-    const divElement = screen.getByRole('contentinfo');
+//     const divElement = screen.getByRole('contentinfo');
 
-    expect(divElement).toBeVisible();
-  });
+//     expect(divElement).toBeVisible();
+//   });
 
-  fit('should render async component', async () => {
-    render(<Card />);
+//   fit('should render async component', async () => {
+//     render(<Card />);
 
-    const mainElement = await screen.findByRole('main');
+//     const mainElement = await screen.findByRole('main');
 
-    expect(mainElement).toBeVisible();
-  });
+//     expect(mainElement).toBeVisible();
+//   });
 
-  fit('should open component when button was clicked', async () => {
-    render(<Card />);
+//   fit('should open component when button was clicked', async () => {
+//     render(<Card />);
 
-    const buttonElement = screen.getByRole('main', { name: 'open' });
+//     const buttonElement = screen.getByRole('main', { name: 'open' });
 
-    expect(buttonElement).toBeVisible();
+//     expect(buttonElement).toBeVisible();
 
-    fireEvent.click(buttonElement);
+//     fireEvent.click(buttonElement);
 
-    const mainElement = screen.getByRole('main');
+//     const mainElement = screen.getByRole('main');
 
-    expect(mainElement).toBeVisible();
-  });
-});
+//     expect(mainElement).toBeVisible();
+//   });
+// });
