@@ -24,6 +24,17 @@ class UserService {
       }
     }
   }
+
+  async getbyName(name: string): Promise<User[] | undefined> {
+    try {
+      const { data } = await api.get<User[]>(`users?name=${name}`);
+      return data;
+    } catch (err) {
+      if (axios.isAxiosError(err) && err.response) {
+        throw new Error(`Status: ${err.response.status} - ${err.message}`);
+      }
+    }
+  }
 }
 
 export default UserService;
