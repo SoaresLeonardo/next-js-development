@@ -1,7 +1,11 @@
+'use client';
+
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import * as S from '@/components/Container';
 
 import { z, ZodError } from 'zod';
+import Input from '@/components/Input';
 
 const schema = z
   .object({
@@ -64,117 +68,59 @@ export default function AdvancedForm() {
     }
   };
   return (
-    <>
-      <h1 className="font-bold text-purple-500 text-4xl">Advanced forms</h1>
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" onSubmit={handleSubmit(handleForm)}>
-          <div>
-            <div className="mt-2">
-              <input
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                type="password"
-                placeholder="Insira sua senha"
-                {...register('password')}
-              />
+    <S.Container>
+      <h1>Advanced Forms</h1>
+      <form className="space-y-6" onSubmit={handleSubmit(handleForm)}>
+        <Input
+          {...register('password')}
+          placeholder="Insira sua senha"
+          error={!!errors.password?.message}
+          helperText={errors.password?.message}
+        />
 
-              {errors.password?.message && (
-                <p className="text-red-500 font-bold">
-                  {errors.password?.message}
-                </p>
-              )}
-            </div>
-          </div>
+        <Input
+          {...register('confirmPassword')}
+          placeholder="Confirme sua senha"
+          error={!!errors.confirmPassword?.message}
+          helperText={errors.confirmPassword?.message}
+        />
 
-          <div>
-            <div className="mt-2">
-              <input
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                type="password"
-                placeholder="Confirme sua senha"
-                {...register('confirmPassword')}
-              />
+        <Input
+          {...register('email')}
+          placeholder="Insira seu E-mail"
+          error={!!errors.email?.message}
+          helperText={errors.email?.message}
+        />
 
-              {errors.confirmPassword?.message && (
-                <p className="text-red-500 font-bold">
-                  {errors.confirmPassword?.message}
-                </p>
-              )}
-            </div>
-          </div>
+        <Input
+          {...register('qtd', {
+            setValueAs: (value: string) => parseInt(value, 10)
+          })}
+          placeholder="Insira uma quantidade"
+          error={!!errors.qtd?.message}
+          helperText={errors.qtd?.message}
+        />
 
-          <div>
-            <div className="mt-2">
-              <input
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                type="email"
-                placeholder="Insira seu e-mail"
-                {...register('email')}
-              />
+        <Input
+          {...register('url')}
+          placeholder="Insira uma URL"
+          error={!!errors.url?.message}
+          helperText={errors.url?.message}
+        />
 
-              {errors.email?.message && (
-                <p className="text-red-500 font-bold">
-                  {errors.email?.message}
-                </p>
-              )}
-            </div>
-          </div>
+        <Input
+          {...register('role')}
+          placeholder="Informe um user"
+          error={!!errors.role?.message}
+          helperText={errors.role?.message}
+        />
 
-          <div>
-            <div className="mt-2">
-              <input
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                type="number"
-                placeholder="Informe a quantidade"
-                {...register('qtd', {
-                  setValueAs: (value: string) => parseInt(value, 10)
-                })}
-              />
-
-              {errors.qtd?.message && (
-                <p className="text-red-500 font-bold">{errors.qtd.message}</p>
-              )}
-            </div>
-          </div>
-
-          <div>
-            <div className="mt-2">
-              <input
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                type="text"
-                placeholder="informe a URL"
-                {...register('url')}
-              />
-              {errors.url?.message && (
-                <p className="text-red-500 font-bold">{errors.url?.message}</p>
-              )}
-            </div>
-          </div>
-
-          <div>
-            <div className="mt-2">
-              <input
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                type="text"
-                placeholder="informe a permissão"
-                {...register('role')}
-              />
-
-              {errors.role?.message && (
-                <p className="text-red-500 font-bold">{errors.role?.message}</p>
-              )}
-            </div>
-          </div>
-
-          <div>
-            <button
-              type="submit"
-              className="flex w-full justify-center rounded-md bg-purple-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-            >
-              Enviar
-            </button>
-          </div>
-        </form>
-      </div>
-    </>
+        <div>
+          <button type="submit" className="bg-blue-500 text-white w-full p-3">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </S.Container>
   );
 }
