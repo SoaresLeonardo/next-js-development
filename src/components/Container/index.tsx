@@ -2,11 +2,18 @@ import { ReactNode } from 'react';
 
 type ContainerProps = {
   children: ReactNode;
+  backgroundColor?: boolean;
 };
 
-export const Container = ({ children }: ContainerProps) => {
+export const Container = ({
+  children,
+  backgroundColor = false
+}: ContainerProps) => {
   return (
-    <div className="max-w-md mx-auto p-4 shadow border border-gray-200 my-4">
+    <div
+      style={backgroundColor ? { backgroundColor: 'white' } : {}}
+      className="max-w-md mx-auto p-4 shadow border border-gray-200 my-4"
+    >
       {children}
     </div>
   );

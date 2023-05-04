@@ -1,21 +1,16 @@
-import { ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 type ButtonProps = {
   children: ReactNode;
-  isLoading?: boolean;
-  color?: 'red' | 'green';
-  onClick?: () => void;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = ({
-  children,
-  isLoading = false,
-  color = 'green',
-  onClick
-}: ButtonProps) => {
+const Button = ({ children, ...rest }: ButtonProps) => {
   return (
-    <button onClick={onClick} style={{ backgroundColor: color }}>
-      {isLoading ? 'Loading' : children}
+    <button
+      className="bg-purple-600 p-4 text-white rounded-md w-full"
+      {...rest}
+    >
+      {children}
     </button>
   );
 };
