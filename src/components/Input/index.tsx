@@ -5,9 +5,9 @@ type InputProps = {
   helperText?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const Input = (
+const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   { error = false, helperText = '', ...rest }: InputProps,
-  ref: React.Ref<HTMLInputElement>
+  ref
 ) => {
   return (
     <>
