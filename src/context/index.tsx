@@ -1,12 +1,12 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { UserProvider } from './users';
+import { ProductsProvider } from './products';
 
 type AppProviderProps = {
   children: ReactNode;
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => {
-  return <UserProvider>{children}</UserProvider>;
+  return <ProductsProvider>{children}</ProductsProvider>;
 };
