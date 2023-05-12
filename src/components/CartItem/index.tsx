@@ -1,26 +1,31 @@
 import { CartItemProps } from '@/redux/cart/types';
 import { useDispatch } from 'react-redux';
-import {
-  decrementAmount,
-  incrementNewAmount,
-  removeProductToCart
-} from '@/redux/cart/actions';
+// import {
+//   decrementAmount,
+//   incrementNewAmount,
+//   removeProductToCart
+// } from '@/redux/cart/actions';
 
 import { FaTimes } from 'react-icons/fa';
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeProduct
+} from '@/redux/cart/slice';
 
 const CartItem = ({ product }: CartItemProps) => {
   const dispatch = useDispatch();
 
   const handleIncrementProduct = () => {
-    dispatch(incrementNewAmount({ payload: product }));
+    dispatch(incrementQuantity(product));
   };
 
   const handleDecrementProduct = () => {
-    dispatch(decrementAmount({ payload: product }));
+    dispatch(decrementQuantity(product));
   };
 
   const handleRemoveProductToCart = () => {
-    dispatch(removeProductToCart({ payload: product }));
+    dispatch(removeProduct(product));
   };
 
   return (

@@ -12,6 +12,8 @@ export default function Cart() {
     (rootReducer: RootState) => rootReducer.cartReducer
   );
 
+  console.log(products);
+
   const productsTotalPrice = useSelector(selectProductsTotalPrice);
 
   return (

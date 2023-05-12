@@ -1,13 +1,14 @@
 import { useDispatch } from 'react-redux';
 import Card from '../Card';
-import { addProductToCart } from '@/redux/cart/actions';
+// import { addProductToCart } from '@/redux/cart/actions';
 import { ProductProps } from '@/redux/cart/types';
+import { addProduct } from '@/redux/cart/slice';
 
 const ProductItem = ({ product }: { product: ProductProps }) => {
   const dispatch = useDispatch();
 
   const handleAddproduct = () => {
-    dispatch(addProductToCart({ payload: product }));
+    dispatch(addProduct(product));
   };
   return (
     <Card
