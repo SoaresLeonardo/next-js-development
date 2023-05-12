@@ -3,6 +3,9 @@
 import { Montserrat } from 'next/font/google';
 
 import './globals.css';
+import { AppProvider } from '@/context';
+import { Provider } from 'react-redux';
+import store from '@/redux/store';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -29,14 +32,14 @@ export default function RootLayout({
       >
         <div
           style={{
-            margin: '50px auto',
-            maxWidth: '450px',
+            // margin: '50px auto',
+            // maxWidth: '450px',
             textAlign: 'center'
           }}
         >
           {/* {isPublicPage && children}
           {!isPublicPage && <PrivateRoute>{children}</PrivateRoute>} */}
-          {children}
+          <Provider store={store}>{children}</Provider>
           {/* <ActiveLink href="/example">Example</ActiveLink>
           <ActiveLink href="/">Home</ActiveLink> */}
         </div>
