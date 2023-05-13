@@ -1,10 +1,14 @@
 import Button from '../Button';
+import { theme } from '@/styles/theme';
+
+import * as S from './styles';
 
 type CardProps = {
   title: string;
   description?: string | number;
   img?: string;
   hasButton?: boolean;
+  textButton?: string;
   actionButton?: () => void;
   hasDescription?: boolean;
 };
@@ -14,22 +18,26 @@ const Card = ({
   description = '',
   img = '',
   hasButton = false,
+  textButton = '',
   actionButton
 }: CardProps) => {
   return (
-    <div className="max-w-sm w-full rounded overflow-hidden shadow-lg">
-      <img className="w-full h-3/5" src={img} alt={title} />
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{title}</div>
-
-        <p className="text-gray-700 text-base">{description}</p>
-      </div>
-      <div className="px-6 pt-4 pb-2">
+    <S.Wrapper>
+      <S.CardImage src={img} alt={title} />
+      <S.CardContent>
+        <S.CardTitle>{title}</S.CardTitle>
+        <S.CardDescription>{description}</S.CardDescription>
         {hasButton && (
-          <Button onClick={actionButton}>Adicionar ao carrinho</Button>
+          <Button
+            backgroundcolor={theme.colors.purple_100}
+            type="button"
+            onClick={actionButton}
+          >
+            {textButton}
+          </Button>
         )}
-      </div>
-    </div>
+      </S.CardContent>
+    </S.Wrapper>
   );
 };
 

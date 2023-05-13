@@ -1,13 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ButtonProps } from '.';
 
-type ContainerProps = Pick<ButtonProps, 'backgroundColor'>;
+type ContainerProps = Pick<ButtonProps, 'backgroundcolor'>;
 
 export const Container = styled.button<ContainerProps>`
-  background-color: ${(props) => props.backgroundColor};
-  border-radius: 8px;
-  padding: 10px;
-  color: white;
-  width: 100%;
-  transition: 0.1s;
+  background-color: ${(props) => props.backgroundcolor};
+  ${({ theme }) => css`
+    border-radius: ${theme.border.radius};
+    padding: ${theme.spacings.xxxsmall};
+    color: ${theme.colors.white};
+    width: 100%;
+    transition: 0.1s;
+  `}
 `;

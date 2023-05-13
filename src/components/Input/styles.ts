@@ -1,3 +1,4 @@
+import { theme } from '@/styles/theme';
 import styled, { css } from 'styled-components';
 
 type IconContainerProps = {
@@ -18,7 +19,7 @@ export const IconContainer = styled.div<IconContainerProps>`
     ${({ isErrored }) =>
       isErrored &&
       css`
-        border: 1px solid red;
+        border: 1px solid ${theme.colors.error};
       `}
   }
 `;

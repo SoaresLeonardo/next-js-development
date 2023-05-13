@@ -1,25 +1,24 @@
-import styled from 'styled-components';
-import { ContainerProps } from '.';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div<Pick<ContainerProps, 'backgroundColor'>>`
-  max-width: 28rem;
-  background-color: ${({ backgroundColor }) =>
-    backgroundColor ? 'white' : 'transparent'};
+export const Container = styled.div`
+  ${({ theme }) => css`
+ max-width: 28rem;
+  background-color: ${theme.colors.white};
   margin: 50px auto;
-  padding: 1rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
+  padding: ${theme.spacings.xxxsmall};
+  box-shadow: ${theme.box.shadow};
+  border-radius: ${theme.border.radius};
 
   button {
-    padding: 10px;
-    background-color: #8844ee;
-    color: white;
-    border-radius: 8px;
+    padding: ${theme.spacings.xxxsmall};
+    background-color: ${theme.colors.purple_100};
+    color: ${theme.colors.white};
+    border-radius: ${theme.border.radius};
     width: 100%;
     transition: 0.1s;
 
     &:hover {
-      background-color: #a970ff;
+      background-color: ${theme.colors.secundary};
     }
-  }
+ `}
 `;

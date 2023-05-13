@@ -1,15 +1,15 @@
-import { ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import * as S from './styles';
 
 export type ButtonProps = {
   children: ReactNode;
-  backgroundColor?: string;
-};
+  backgroundcolor?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = ({ children, backgroundColor }: ButtonProps) => {
+const Button = ({ children, backgroundcolor, ...rest }: ButtonProps) => {
   return (
-    <S.Container backgroundColor={backgroundColor ? backgroundColor : 'blue'}>
+    <S.Container backgroundcolor={backgroundcolor} {...rest}>
       {children}
     </S.Container>
   );

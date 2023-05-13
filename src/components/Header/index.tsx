@@ -1,3 +1,5 @@
+import * as S from './styles';
+
 type HeaderProps = {
   title: string;
   hasLogin?: boolean;
@@ -14,23 +16,17 @@ const Header = ({
   icon
 }: HeaderProps) => {
   return (
-    <div className="w-full">
-      <header className="bg-white shadow">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-left">
-            {title}
-          </h1>
-          {hasLogin && (
-            <div className="text-right ml-auto cursor-pointer flex items-center">
-              <span className="mx-0.5" onClick={loginAction}>
-                {textLoginAction}
-              </span>
-              <span className="mx-0.5"> {icon && icon()}</span>
-            </div>
-          )}
-        </div>
-      </header>
-    </div>
+    <S.Wrapper>
+      <S.Container>
+        <S.Title>{title}</S.Title>
+        {hasLogin && (
+          <S.ActionWrapper>
+            <S.ActionText onClick={loginAction}>{textLoginAction}</S.ActionText>
+            <S.ActionText>{icon && icon()}</S.ActionText>
+          </S.ActionWrapper>
+        )}
+      </S.Container>
+    </S.Wrapper>
   );
 };
 

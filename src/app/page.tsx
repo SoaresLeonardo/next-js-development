@@ -1,7 +1,14 @@
+'use client';
+
+import * as S from '@/components/Container';
+
 export default function Home() {
   return (
     <>
-      <h1>Home</h1>
+      <S.Container>
+        <h1>home</h1>
+        <button>home</button>
+      </S.Container>
     </>
   );
 }

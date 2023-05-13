@@ -4,14 +4,8 @@ import * as S from './styles';
 
 export type ContainerProps = {
   children: ReactNode;
-  backgroundColor?: boolean;
 };
 
-export const Container = ({
-  children,
-  backgroundColor = false
-}: ContainerProps) => {
-  return (
-    <S.Container backgroundColor={backgroundColor}>{children}</S.Container>
-  );
+export const Container = ({ children }: ContainerProps) => {
+  return <S.Container>{children}</S.Container>;
 };
