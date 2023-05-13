@@ -6,6 +6,9 @@ export const Container = styled.div`
   background-color: ${theme.colors.white};
   margin: 50px auto;
   padding: ${theme.spacings.xxxsmall};
+  gap: ${theme.spacings.xxxsmall};
+  flex-direction: column;
+  display: flex;
   box-shadow: ${theme.box.shadow};
   border-radius: ${theme.border.radius};
 
