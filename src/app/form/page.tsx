@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as C from '@/components/Container';
+import * as S from '@/components/Container';
 
 import { z, ZodError } from 'zod';
 import Input from '@/components/Input';
@@ -68,7 +68,7 @@ export default function AdvancedForm() {
     }
   };
   return (
-    <C.Container>
+    <S.Container>
       <h1>Advanced Forms</h1>
       <form className="space-y-6" onSubmit={handleSubmit(handleForm)}>
         <Input
@@ -116,11 +116,9 @@ export default function AdvancedForm() {
         />
 
         <div>
-          <button type="submit" className="bg-blue-500 text-white w-full p-3">
-            Enviar
-          </button>
+          <button type="submit">Enviar</button>
         </div>
       </form>
-    </C.Container>
+    </S.Container>
   );
 }

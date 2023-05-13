@@ -1,5 +1,8 @@
 import { InputHTMLAttributes, forwardRef } from 'react';
 
+import * as S from './styles';
+import ErrorText from '../ErrorText';
+
 type InputProps = {
   error?: boolean;
   helperText?: string;
@@ -11,13 +14,12 @@ const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
 ) => {
   return (
     <>
-      <input
-        style={error ? { border: '1px solid red' } : {}}
-        className="w-full border border-gray-200 shadow text-sm p-3 mt-3"
-        ref={ref}
-        {...rest}
-      />
-      {error && <span className="text-red-500">{helperText}</span>}
+      <S.Container>
+        <S.IconContainer isErrored={error}>
+          <input ref={ref} {...rest} />
+        </S.IconContainer>
+        {error && <ErrorText>{helperText}</ErrorText>}
+      </S.Container>
     </>
   );
 };

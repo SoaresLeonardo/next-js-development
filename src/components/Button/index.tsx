@@ -1,17 +1,17 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
-type ButtonProps = {
+import * as S from './styles';
+
+export type ButtonProps = {
   children: ReactNode;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+  backgroundColor?: string;
+};
 
-const Button = ({ children, ...rest }: ButtonProps) => {
+const Button = ({ children, backgroundColor }: ButtonProps) => {
   return (
-    <button
-      className="bg-purple-600 p-4 text-white rounded-md w-full mt-2"
-      {...rest}
-    >
+    <S.Container backgroundColor={backgroundColor ? backgroundColor : 'blue'}>
       {children}
-    </button>
+    </S.Container>
   );
 };
 

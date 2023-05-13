@@ -29,6 +29,7 @@
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "redux": "^4.2.1",
+    "styled-components": "^6.0.0-rc.1",
     "tailwindcss": "3.3.1",
     "ts-node": "^10.9.1",
     "typescript": "5.0.4",
