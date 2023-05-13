@@ -3,9 +3,10 @@
 import { Montserrat } from 'next/font/google';
 
 import './globals.css';
-import { AppProvider } from '@/context';
+// import { AppProvider } from '@/context';
 import { Provider } from 'react-redux';
-import store from '@/redux/store';
+import { store } from '@/redux/counter';
+// import store from '@/redux/store';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
