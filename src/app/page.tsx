@@ -6,8 +6,7 @@ export default function Home() {
   return (
     <>
       <S.Container>
-        <h1>home</h1>
-        <button>home</button>
+        <h1>Hello world!</h1>
       </S.Container>
     </>
   );
