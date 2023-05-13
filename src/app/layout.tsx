@@ -1,11 +1,7 @@
-'use client';
-
+import { ProviderPage } from '@/providers/StyledComponentsProvider';
 import { Montserrat } from 'next/font/google';
 
 import './globals.css';
-// import { AppProvider } from '@/context';
-import StyledComponentsRegistry from '@/lib';
-// import store from '@/redux/store';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -14,16 +10,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const pathname = usePathname();
-
-  // const isPublicPage = checkIsPublicRoute(pathname!);
-
-  // Se o usuário estiver autenticado e acessar uma rota privada
-  // Ele deve visualizar a página
-
-  // Caso não estiver autenticado e acessar uma rota privada
-  // Ele não deve visualizar a página
-
   return (
     <html lang="pt-BR">
       <body
@@ -32,16 +18,10 @@ export default function RootLayout({
       >
         <div
           style={{
-            // margin: '50px auto',
-            // maxWidth: '450px',
             textAlign: 'center'
           }}
         >
-          {/* {isPublicPage && children}
-          {!isPublicPage && <PrivateRoute>{children}</PrivateRoute>} */}
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-          {/* <ActiveLink href="/example">Example</ActiveLink>
-          <ActiveLink href="/">Home</ActiveLink> */}
+          <ProviderPage>{children}</ProviderPage>
         </div>
       </body>
     </html>
