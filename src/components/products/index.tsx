@@ -1,21 +1,16 @@
 import products from '@/services/data/products';
 import ProductItem from '../ProductItem';
+import * as S from './styled';
 
 const Products = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '20px',
-        justifyContent: 'center',
-        marginTop: '30px'
-      }}
-    >
-      {products.map((product) => (
-        <ProductItem product={product} key={product.id} />
-      ))}
-    </div>
+    <S.Wrapper>
+      <S.Container>
+        {products.map((product) => (
+          <ProductItem {...product} key={product.id} />
+        ))}
+      </S.Container>
+    </S.Wrapper>
   );
 };
 

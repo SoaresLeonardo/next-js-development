@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
+  background-color: white;
 `;
 
 export const ActionWrapper = styled.div`
@@ -24,7 +25,6 @@ export const ActionText = styled.span`
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    background-color: ${theme.colors.white};
     /* box-shadow: ${theme.box.shadow}; */
     max-width: 70rem;
     margin: 0 auto;

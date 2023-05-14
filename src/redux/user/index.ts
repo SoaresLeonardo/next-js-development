@@ -1,24 +1,26 @@
-const initialState = {
-  currentUser: null
-};
+import { createStore } from 'redux';
 
-type LoginPayload = {
+type UserProps = {
   name: string;
   email: string;
 };
 
-type State = {
-  currentUser: null;
+type StateProps = {
+  currentUser: null | UserProps;
 };
 
-type Action = {
+type ActionsProps = {
   type: 'user/login' | 'user/logout';
-  payload: LoginPayload;
+  payload: UserProps;
 };
 
-type UserReducerProps<S, A> = (state: S, action: A) => void;
+const initialState: StateProps = {
+  currentUser: null
+};
 
-const userReducer: UserReducerProps<State, Action> = (
+type UserReducerProps<S, A> = (state: S | undefined, action: A) => S;
+
+export const userReducer: UserReducerProps<StateProps, ActionsProps> = (
   state = initialState,
   action
 ) => {
@@ -31,7 +33,8 @@ const userReducer: UserReducerProps<State, Action> = (
 
     case 'user/logout':
       return {
-        currentUser: state.currentUser === null
+        ...state,
+        currentUser: null
       };
 
     default:
@@ -39,4 +42,4 @@ const userReducer: UserReducerProps<State, Action> = (
   }
 };
 
-export default userReducer;
+export const store = createStore(userReducer);

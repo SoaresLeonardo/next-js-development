@@ -1,22 +1,20 @@
-import { useDispatch } from 'react-redux';
 import Card from '../Card';
-// import { addProductToCart } from '@/redux/cart/actions';
-import { ProductProps } from '@/redux/cart/types';
-import { addProduct } from '@/redux/cart/slice';
 
-const ProductItem = ({ product }: { product: ProductProps }) => {
-  const dispatch = useDispatch();
+type ProductProps = {
+  name: string;
+  id?: string;
+  imageUrl: string;
+  price: number;
+};
 
-  const handleAddproduct = () => {
-    dispatch(addProduct(product));
-  };
+const ProductItem = ({ name, imageUrl, price }: ProductProps) => {
   return (
     <Card
-      title={product.name}
-      description={`R$${product.price}`}
+      title={name}
+      description={price}
+      img={imageUrl}
       hasButton
-      actionButton={handleAddproduct}
-      img={product.imageUrl}
+      textButton="Adicionar ao carrinho"
     />
   );
 };
