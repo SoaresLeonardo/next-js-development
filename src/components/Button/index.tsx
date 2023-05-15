@@ -5,11 +5,12 @@ import * as S from './styles';
 export type ButtonProps = {
   children: ReactNode;
   backgroundcolor?: string;
+  color?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = ({ children, backgroundcolor, ...rest }: ButtonProps) => {
+const Button = ({ children, backgroundcolor, color, ...rest }: ButtonProps) => {
   return (
-    <S.Container backgroundcolor={backgroundcolor} {...rest}>
+    <S.Container backgroundcolor={backgroundcolor} color={color} {...rest}>
       {children}
     </S.Container>
   );
