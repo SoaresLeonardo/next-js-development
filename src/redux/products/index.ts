@@ -1,11 +1,24 @@
 import { createStore } from 'redux';
+import { Action, ProductsReducer, State } from './types';
 
-type Products
+const initialState: State = {
+  products: []
+};
 
-type State = {
-  products:
-}
+export const productsReducer: ProductsReducer<State, Action> = (
+  state = initialState,
+  action
+) => {
+  switch (action.type) {
+    case 'cart/add':
+      return {
+        ...state,
+        products: [...state.products, { ...action.payload }]
+      };
 
-export const productReducer = (state, action) => {};
+    default:
+      return state;
+  }
+};
 
-export const store = createStore(productReducer);
+export const store = createStore(productsReducer);

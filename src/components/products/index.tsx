@@ -7,7 +7,7 @@ const Products = () => {
     <S.Wrapper>
       <S.Container>
         {products.map((product) => (
-          <ProductItem {...product} key={product.id} />
+          <ProductItem product={product} key={product.id} />
         ))}
       </S.Container>
     </S.Wrapper>

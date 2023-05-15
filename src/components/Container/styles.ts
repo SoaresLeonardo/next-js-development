@@ -13,8 +13,10 @@ export const Container = styled.div`
   border-radius: ${theme.border.radius};
 
   button {
-    padding: ${theme.spacings.xxxsmall};
+    /* color: ${theme.colors.white}; */
+    /* padding: ${theme.spacings.xxxsmall};
     background-color: ${theme.colors.purple_100};
+
     color: ${theme.colors.white};
     border-radius: ${theme.border.radius};
     width: 100%;
@@ -22,6 +24,6 @@ export const Container = styled.div`
 
     &:hover {
       background-color: ${theme.colors.secundary};
-    }
+    } */
  `}
 `;
