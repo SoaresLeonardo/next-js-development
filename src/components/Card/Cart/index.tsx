@@ -1,5 +1,5 @@
-import Button from '@/components/Button';
 import * as S from './styled';
+import Button from '@/components/Button';
 
 type CartProps = {
   title: string;
@@ -8,12 +8,12 @@ type CartProps = {
   hasQuantity?: boolean;
   quantity?: number;
   hasActions?: boolean;
-  actionIncrement?: () => void;
-  actionDecrement?: () => void;
   hasRemove?: boolean;
-  remove?: () => void;
   price: number;
   img?: string;
+  actionIncrement?: () => void;
+  actionDecrement?: () => void;
+  remove?: () => void;
 };
 
 const Cart = ({
@@ -23,12 +23,12 @@ const Cart = ({
   hasDescription,
   quantity = 1,
   price = 0,
-  remove,
-  actionIncrement,
-  actionDecrement,
   hasRemove,
   hasActions,
-  hasQuantity
+  hasQuantity,
+  remove,
+  actionIncrement,
+  actionDecrement
 }: CartProps) => {
   return (
     <S.Wrapper>
