@@ -4,7 +4,7 @@ import Card from '../Card';
 type ProductProps = {
   product: {
     name: string;
-    id?: string;
+    id: string;
     imageUrl: string;
     price: number;
   };
