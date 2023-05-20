@@ -2,29 +2,20 @@ import * as S from './styles';
 
 type HeaderProps = {
   title: string;
-  hasLogin?: boolean;
-  textLoginAction?: string;
-  loginAction?: () => void;
-  icon?: () => JSX.Element;
+  profile?: React.ReactNode;
+  login?: React.ReactNode;
+  cart?: React.ReactNode;
 };
 
-const Header = ({
-  title = '',
-  hasLogin = false,
-  textLoginAction = '',
-  loginAction,
-  icon
-}: HeaderProps) => {
+const Header = ({ title = '', login, cart }: HeaderProps) => {
   return (
     <S.Wrapper>
       <S.Container>
         <S.Title>{title}</S.Title>
-        {hasLogin && (
-          <S.ActionWrapper>
-            <S.ActionText onClick={loginAction}>{textLoginAction}</S.ActionText>
-            <S.ActionText>{icon && icon()}</S.ActionText>
-          </S.ActionWrapper>
-        )}
+        <S.ActionWrapper>
+          {login}
+          {cart}
+        </S.ActionWrapper>
       </S.Container>
     </S.Wrapper>
   );

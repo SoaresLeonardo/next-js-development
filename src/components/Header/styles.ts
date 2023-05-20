@@ -11,6 +11,7 @@ export const ActionWrapper = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
+  gap: 1rem;
 `;
 
 export const Title = styled.h1`
@@ -18,11 +19,6 @@ export const Title = styled.h1`
   font-weight: bold;
   text-align: left;
 `;
-
-export const ActionText = styled.span`
-  margin: 0.1rem;
-`;
-
 export const Container = styled.div`
   ${({ theme }) => css`
     /* box-shadow: ${theme.box.shadow}; */
