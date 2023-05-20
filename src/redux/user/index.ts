@@ -5,7 +5,7 @@ type UserProps = {
   email: string;
 };
 
-type StateProps = {
+export type StateProps = {
   currentUser: null | UserProps;
 };
 
