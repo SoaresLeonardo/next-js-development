@@ -1,8 +1,10 @@
-import products from '@/services/data/products';
 import ProductItem from '../ProductItem';
 import * as S from './styled';
+import { Product } from '@/redux/products/types';
 
-const Products = () => {
+type ProductType = Omit<Product, 'quantity'>;
+
+const Products = ({ products }: { products: ProductType[] }) => {
   return (
     <S.Wrapper>
       <S.Container>
