@@ -1,30 +1,17 @@
 'use client';
 
-import { AiOutlineShoppingCart } from 'react-icons/ai';
-
-import Products from '@/components/Products';
+import products from '@/services/data/products';
 
 import Header from '@/components/Header';
-import { useSelector } from 'react-redux';
-import { State } from '@/redux/products/types';
+import Products from '@/components/Products';
 import Link from 'next/link';
 
 export default function ProductsPage() {
-  const products = useSelector((state: State) => state.products);
-
-  console.log(products);
   return (
     <>
-      <Header
-        title="Shopping cart"
-        hasLogin
-        icon={() => (
-          <Link href="cart">
-            <AiOutlineShoppingCart />
-          </Link>
-        )}
-      />
-      <Products />
+      <Header title="Shopping cart" cart={<Link href="/cart">Cart</Link>} />
+
+      <Products products={products} />
     </>
   );
 }
