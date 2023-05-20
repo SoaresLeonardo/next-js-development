@@ -3,6 +3,7 @@ import { Montserrat } from 'next/font/google';
 
 import './globals.css';
 import { ProductsProvider } from '@/providers/ProductsProvider';
+import { UserProvider } from '@/providers/UserProvider';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -22,9 +23,9 @@ export default function RootLayout({
             textAlign: 'center'
           }}
         >
-          <ProductsProvider>
-            <ProviderPage>{children}</ProviderPage>
-          </ProductsProvider>
+          <ProviderPage>
+            <ProductsProvider>{children}</ProductsProvider>
+          </ProviderPage>
         </div>
       </body>
     </html>
