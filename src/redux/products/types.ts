@@ -1,17 +1,18 @@
-export type Products = {
+export type Product = {
   name: string;
   id: string;
   imageUrl: string;
   price: number;
+  quantity: number;
 };
 
 export type State = {
-  products: Products[];
+  products: Product[];
 };
 
 export type Action = {
-  type: 'cart/add' | 'cart/remove';
-  payload: Products;
+  type: 'cart/add' | 'cart/remove' | 'cart/increment' | 'cart/decrement';
+  payload: Product;
 };
 
 export type ProductsReducer<S, A> = (state: S | undefined, action: A) => S;
