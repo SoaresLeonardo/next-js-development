@@ -70,26 +70,26 @@ export default function AdvancedForm() {
   return (
     <S.Container>
       <h1>Advanced Forms</h1>
-      <form className="space-y-6" onSubmit={handleSubmit(handleForm)}>
+      <form onSubmit={handleSubmit(handleForm)}>
         <Input
           {...register('password')}
           placeholder="Insira sua senha"
-          error={!!errors.password?.message}
-          helperText={errors.password?.message}
+          error={errors.password?.message}
+          label="Senha"
         />
 
         <Input
           {...register('confirmPassword')}
           placeholder="Confirme sua senha"
-          error={!!errors.confirmPassword?.message}
-          helperText={errors.confirmPassword?.message}
+          error={errors.confirmPassword?.message}
+          label="Confirmar senha"
         />
 
         <Input
           {...register('email')}
           placeholder="Insira seu E-mail"
-          error={!!errors.email?.message}
-          helperText={errors.email?.message}
+          error={errors.email?.message}
+          label="E-mail"
         />
 
         <Input
@@ -97,22 +97,22 @@ export default function AdvancedForm() {
             setValueAs: (value: string) => parseInt(value, 10)
           })}
           placeholder="Insira uma quantidade"
-          error={!!errors.qtd?.message}
-          helperText={errors.qtd?.message}
+          error={errors.qtd?.message}
+          label="Quantidade"
         />
 
         <Input
           {...register('url')}
           placeholder="Insira uma URL"
-          error={!!errors.url?.message}
-          helperText={errors.url?.message}
+          error={errors.url?.message}
+          label="Uma Url"
         />
 
         <Input
           {...register('role')}
           placeholder="Informe um user"
-          error={!!errors.role?.message}
-          helperText={errors.role?.message}
+          error={errors.role?.message}
+          label="User"
         />
 
         <div>
