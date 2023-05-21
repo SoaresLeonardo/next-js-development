@@ -1,25 +1,39 @@
-import { InputHTMLAttributes, forwardRef } from 'react';
+import { InputHTMLAttributes, forwardRef, useId } from 'react';
 
 import * as S from './styles';
 import ErrorText from '../ErrorText';
 
-type InputProps = {
-  error?: boolean;
-  helperText?: string;
-} & InputHTMLAttributes<HTMLInputElement>;
+export type Props = {
+  label?: string;
+  error?: string;
+  startAdorment?: React.ReactNode;
+  endAdorment?: React.ReactNode;
+};
+
+type InputProps = InputHTMLAttributes<HTMLInputElement> & Props;
 
 const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  { error = false, helperText = '', ...rest }: InputProps,
+  {
+    name,
+    error,
+    type = 'text',
+    label = '',
+    startAdorment,
+    endAdorment,
+    ...rest
+  }: InputProps,
   ref
 ) => {
+  const labelId = useId();
   return (
     <>
-      <S.Container>
-        <S.IconContainer isErrored={error}>
-          <input ref={ref} {...rest} />
-        </S.IconContainer>
-        {error && <ErrorText>{helperText}</ErrorText>}
+      {label && <S.Label htmlFor={labelId}>{label}</S.Label>}
+      <S.Container error={error}>
+        {startAdorment && <S.Adorment>{startAdorment}</S.Adorment>}
+        <S.Input id={labelId} ref={ref} {...rest} type={type} name={name} />
+        {endAdorment && <S.Adorment>{endAdorment}</S.Adorment>}
       </S.Container>
+      {error && <ErrorText>{error}</ErrorText>}
     </>
   );
 };

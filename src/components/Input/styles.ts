@@ -1,25 +1,46 @@
 import { theme } from '@/styles/theme';
 import styled, { css } from 'styled-components';
+import { Props } from '.';
 
-type IconContainerProps = {
-  isErrored?: boolean;
-};
+export const Container = styled.div<Pick<Props, 'error'>>`
+  ${({ error, theme }) => css`
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background-color: white;
+    border: 1px solid ${theme.colors.gray_100};
+    border-radius: 0.6rem;
 
-export const Container = styled.div`
+    &:focus-within {
+      border-color: ${theme.colors.secundary};
+
+      svg {
+        color: ${theme.colors.secundary};
+      }
+    }
+
+    ${error &&
+    css`
+      border: 2px solid ${theme.colors.error};
+    `}
+  `}
+`;
+
+export const Label = styled.label`
+  font-size: ${theme.font.sizes.xxxxsmall};
+  color: ${theme.colors.gray_500};
+`;
+
+export const Input = styled.input`
+  color: ${theme.colors.black};
+  background: transparent;
+  outline: none;
+  border: none;
   width: 100%;
 `;
 
-export const IconContainer = styled.div<IconContainerProps>`
-  input {
-    background: white;
-    outline: none;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    padding: 8px;
-    width: 100%;
-    ${({ isErrored }) =>
-      isErrored &&
-      css`
-        border: 1px solid ${theme.colors.error};
-      `}
-  }
+export const Adorment = styled.span`
+  font-size: ${theme.font.sizes.xxsmall};
+  color: ${theme.colors.gray_450};
+  margin: 0 0.6rem;
 `;
