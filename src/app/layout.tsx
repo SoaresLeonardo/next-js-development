@@ -19,9 +19,9 @@ export default function RootLayout({
         style={{ backgroundColor: '#ecf0f1' }}
       >
         <div
-          style={{
-            textAlign: 'center'
-          }}
+        // style={{
+        //   textAlign: 'center'
+        // }}
         >
           <ProviderPage>
             <ProductsProvider>{children}</ProductsProvider>
