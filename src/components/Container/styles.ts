@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
+  h1 {
+    text-align: center;
+  }
+
   ${({ theme }) => css`
  max-width: 28rem;
   background-color: ${theme.colors.white};
