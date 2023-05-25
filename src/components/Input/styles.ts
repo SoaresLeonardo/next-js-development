@@ -44,3 +44,5 @@ export const Adorment = styled.span`
   color: ${theme.colors.gray_450};
   margin: 0 0.6rem;
 `;
+
+export const ButtonVisiblePassword = styled.button``;

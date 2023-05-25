@@ -17,27 +17,30 @@ const Card = ({
   title = '',
   description = '',
   img = '',
-  hasButton = false,
   textButton = '',
+  hasButton = false,
   actionButton
 }: CardProps) => {
   return (
-    <S.Wrapper>
-      <S.CardImage src={img} alt={title} />
-      <S.CardContent>
-        <S.CardTitle>{title}</S.CardTitle>
-        <S.CardDescription>{description}</S.CardDescription>
-        {hasButton && (
+    <S.Container>
+      <S.ImageContainer>
+        <S.Image src={img} alt={title} />
+      </S.ImageContainer>
+      <S.InfoContainer>
+        <S.Title>{title}</S.Title>
+        {description && <S.Description>{description}</S.Description>}
+      </S.InfoContainer>
+      {hasButton && (
+        <S.CardFooter>
           <Button
-            backgroundcolor={theme.colors.purple_100}
-            type="button"
             onClick={actionButton}
+            backgroundcolor={theme.colors.secundary}
           >
             {textButton}
           </Button>
-        )}
-      </S.CardContent>
-    </S.Wrapper>
+        </S.CardFooter>
+      )}
+    </S.Container>
   );
 };
 

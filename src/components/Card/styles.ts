@@ -1,31 +1,59 @@
+import { theme } from '@/styles/theme';
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   ${({ theme }) => css`
-    max-width: 20rem;
     width: 100%;
-    border-radius: ${theme.border.radius};
+    max-width: 20rem;
+    height: 32rem;
+    display: flex;
     overflow: hidden;
+    flex-direction: column;
+    background-color: ${theme.colors.white};
+    text-align: center;
+    position: relative;
+    border-radius: ${theme.border.radius};
     box-shadow: ${theme.box.shadow};
   `}
 `;
 
-export const CardImage = styled.img`
+export const ImageContainer = styled.div`
   width: 100%;
-  height: 60%;
+  height: 70%;
+
+  position: relative;
+
+  img {
+    object-fit: cover;
+  }
 `;
 
-export const CardTitle = styled.div`
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-export const CardDescription = styled.p`
-  color: #555555;
-  font-size: 1rem;
-`;
-
-export const CardContent = styled.div`
+export const InfoContainer = styled.div`
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+export const Title = styled.h2`
+  font-size: ${theme.font.sizes.xxxsmall};
+`;
+
+export const Description = styled.p``;
+
+export const CardFooter = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
 `;

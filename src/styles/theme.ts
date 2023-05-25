@@ -46,6 +46,7 @@ export const theme = {
     }
   },
   spacings: {
+    xxxxsmall: '0.6rem',
     xxxsmall: '0.8rem',
     xxsmall: '1rem',
     xsmall: '1.6rem',

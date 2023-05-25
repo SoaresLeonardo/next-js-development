@@ -1,9 +1,7 @@
-import { ProviderPage } from '@/providers/StyledComponentsProvider';
 import { Montserrat } from 'next/font/google';
 
 import './globals.css';
-import { ProductsProvider } from '@/providers/ProductsProvider';
-import { UserProvider } from '@/providers/UserProvider';
+import { ProviderPage } from './providers/StyledComponentsProvider';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -18,14 +16,8 @@ export default function RootLayout({
         className={`${montserrat.className}`}
         style={{ backgroundColor: '#ecf0f1' }}
       >
-        <div
-        // style={{
-        //   textAlign: 'center'
-        // }}
-        >
-          <ProviderPage>
-            <ProductsProvider>{children}</ProductsProvider>
-          </ProviderPage>
+        <div>
+          <ProviderPage>{children}</ProviderPage>
         </div>
       </body>
     </html>

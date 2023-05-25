@@ -1,7 +1,14 @@
-import { InputHTMLAttributes, forwardRef, useId } from 'react';
+import {
+  InputHTMLAttributes,
+  forwardRef,
+  useCallback,
+  useId,
+  useState
+} from 'react';
 
 import * as S from './styles';
 import ErrorText from '../ErrorText';
+import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 
 export type Props = {
   label?: string;
@@ -25,12 +32,30 @@ const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   ref
 ) => {
   const labelId = useId();
+  const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+  const typeVisible = isVisiblePassword ? 'text' : 'password';
+  const typeChangePassword = type === 'password' ? typeVisible : type;
+
+  const handleVisiblePassword = useCallback(() => {
+    setIsVisiblePassword((state) => !state);
+  }, []);
   return (
     <>
       {label && <S.Label htmlFor={labelId}>{label}</S.Label>}
       <S.Container error={error}>
         {startAdorment && <S.Adorment>{startAdorment}</S.Adorment>}
-        <S.Input id={labelId} ref={ref} {...rest} type={type} name={name} />
+        <S.Input
+          ref={ref}
+          id={labelId}
+          type={typeChangePassword}
+          name={name}
+          {...rest}
+        />
+        {type === 'password' && (
+          <S.ButtonVisiblePassword onClick={handleVisiblePassword}>
+            {isVisiblePassword ? <MdVisibilityOff /> : <MdVisibility />}
+          </S.ButtonVisiblePassword>
+        )}
         {endAdorment && <S.Adorment>{endAdorment}</S.Adorment>}
       </S.Container>
       {error && <ErrorText>{error}</ErrorText>}

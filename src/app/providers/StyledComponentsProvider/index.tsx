@@ -2,7 +2,7 @@
 
 import { theme } from '@/styles/theme';
 import { ThemeProvider } from 'styled-components';
-import StyledComponentsRegistry from '@/lib';
+import StyledComponentsRegistry from '@/app/lib';
 import { ReactNode } from 'react';
 
 type ProviderPageProps = {
