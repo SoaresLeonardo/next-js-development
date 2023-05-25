@@ -1,4 +1,4 @@
-import { StateProps } from '@/redux/user';
+import { StateProps } from '@/app/redux/user';
 import { useDispatch } from 'react-redux';
 
 const Login = ({ currentUser: user }: StateProps) => {

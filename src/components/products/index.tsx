@@ -1,6 +1,6 @@
+import { Product } from '@/app/redux/products/types';
 import ProductItem from '../ProductItem';
 import * as S from './styled';
-import { Product } from '@/redux/products/types';
 
 type ProductType = Omit<Product, 'quantity'>;
 

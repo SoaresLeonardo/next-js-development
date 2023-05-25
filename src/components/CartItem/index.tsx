@@ -1,4 +1,4 @@
-import { Product } from '@/redux/products/types';
+import { Product } from '@/app/redux/products/types';
 import Cart from '../Card/Cart';
 import { useDispatch } from 'react-redux';
 

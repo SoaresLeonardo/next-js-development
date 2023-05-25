@@ -1,4 +1,4 @@
-import { State } from '@/redux/products/types';
+import { State } from '@/app/redux/products/types';
 import { CartItem } from '../CartItem';
 
 const Cart = ({ products }: State) => {

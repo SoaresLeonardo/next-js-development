@@ -1,6 +1,6 @@
+import { useUsersStore } from '@/app/store/users';
 import * as C from '@/components/Container';
 // import { useUsers } from '@/context/users';
-import { useUsersStore } from '@/store/users';
 
 export const Users = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks

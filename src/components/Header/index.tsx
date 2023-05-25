@@ -18,7 +18,7 @@ const Header = ({
   hasLinks,
   profile
 }: HeaderProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   return (
     <S.Container>
       <S.Content>
@@ -28,11 +28,11 @@ const Header = ({
         </S.LogoContainer>
         {hasLinks && (
           <>
-            <S.MobileMenu onClick={() => setIsOpen(!isOpen)}>
+            <S.MobileMenu>
               <HiMenuAlt1 />
             </S.MobileMenu>
-            <S.MenuContainer isMenuOpen={isOpen}>
-              <S.CloseMobileMenu onClick={() => setIsOpen(!isOpen)}>
+            <S.MenuContainer>
+              <S.CloseMobileMenu>
                 <AiOutlineClose />
               </S.CloseMobileMenu>
               <S.MenuItem>Products</S.MenuItem>

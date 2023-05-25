@@ -45,7 +45,6 @@ export const MenuContainer = styled.div`
     right: 0px;
     width: 60%;
     height: 100vh;
-    right: ${(props) => (props.isMenuOpen ? '0' : '-100%')};
     transition: 0.3s;
     span {
       margin-top: 80px;

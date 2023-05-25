@@ -1,6 +1,6 @@
 'use client';
 
-import { store } from '@/redux/counter';
+import { store } from '@/app/redux/counter';
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
 

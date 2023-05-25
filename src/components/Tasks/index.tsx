@@ -18,7 +18,6 @@ const Tasks = () => {
     setTasks(data);
   };
 
-
   return (
     <>
       <h1>Tasks from API</h1>
