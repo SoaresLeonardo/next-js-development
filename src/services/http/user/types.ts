@@ -1,8 +1,13 @@
 export interface User {
   id: number;
-  name: string;
+  name: {
+    title: string;
+    first: string;
+    last: string;
+  };
   username: string;
   email: string;
+  gender: string;
   address: {
     street: string;
     suite: string;
@@ -13,7 +18,7 @@ export interface User {
       lng: string;
     };
   };
-  phone: string;
+  cell: string;
   website: string;
   company: {
     name: string;
