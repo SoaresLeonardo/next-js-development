@@ -23,6 +23,14 @@ export const Container = styled.div<Pick<Props, 'error'>>`
     css`
       border: 2px solid ${theme.colors.error};
     `}
+
+    button {
+      padding: 0;
+      background-color: transparent;
+      color: ${theme.colors.gray_450};
+      border: none;
+      width: inherit;
+    }
   `}
 `;
 
@@ -46,3 +54,11 @@ export const Adorment = styled.span`
 `;
 
 export const ButtonVisiblePassword = styled.button``;
+
+export const ContainerCheckbox = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+`;
+
+export const InputCheckbox = styled.input``;
