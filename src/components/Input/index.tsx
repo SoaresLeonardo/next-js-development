@@ -42,22 +42,38 @@ const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   return (
     <>
       {label && <S.Label htmlFor={labelId}>{label}</S.Label>}
-      <S.Container error={error}>
-        {startAdorment && <S.Adorment>{startAdorment}</S.Adorment>}
-        <S.Input
-          ref={ref}
-          id={labelId}
-          type={typeChangePassword}
-          name={name}
-          {...rest}
-        />
-        {type === 'password' && (
-          <S.ButtonVisiblePassword onClick={handleVisiblePassword}>
-            {isVisiblePassword ? <MdVisibilityOff /> : <MdVisibility />}
-          </S.ButtonVisiblePassword>
-        )}
-        {endAdorment && <S.Adorment>{endAdorment}</S.Adorment>}
-      </S.Container>
+      {type === 'checkbox' && (
+        <S.ContainerCheckbox>
+          <S.InputCheckbox
+            ref={ref}
+            id={labelId}
+            type={typeChangePassword}
+            name={name}
+            {...rest}
+          />
+        </S.ContainerCheckbox>
+      )}
+      {type !== 'checkbox' && (
+        <S.Container error={error}>
+          {startAdorment && <S.Adorment>{startAdorment}</S.Adorment>}
+          <S.Input
+            ref={ref}
+            id={labelId}
+            type={typeChangePassword}
+            name={name}
+            {...rest}
+          />
+          {type === 'password' && (
+            <S.ButtonVisiblePassword
+              type="button"
+              onClick={handleVisiblePassword}
+            >
+              {isVisiblePassword ? <MdVisibilityOff /> : <MdVisibility />}
+            </S.ButtonVisiblePassword>
+          )}
+          {endAdorment && <S.Adorment>{endAdorment}</S.Adorment>}
+        </S.Container>
+      )}
       {error && <ErrorText>{error}</ErrorText>}
     </>
   );
